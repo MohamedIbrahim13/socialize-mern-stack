@@ -1,0 +1,12 @@
+body {
+    background-color: #f7f8fc;
+}
+
+* {
+    font-family: 'Heebo', sans-serif !important;
+}
+
+
+ul {
+	justify-content:space-around;
+}
