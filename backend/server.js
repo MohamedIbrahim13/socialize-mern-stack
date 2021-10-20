@@ -10,7 +10,7 @@ const postsRoutes = require("./routes/posts");
 const usersRoutes = require("./routes/users");
 const { checkUser } = require("./middleware/authMiddleware");
 
-const PORT = 5000 || process.env.PORT;
+const PORT = process.env.PORT;
 
 app.use(express.json({ limit: "30mb", extended: false }));
 app.use(express.urlencoded({ limit: "30mb", extended: false }));
