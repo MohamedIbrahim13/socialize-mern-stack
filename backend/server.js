@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -21,12 +23,13 @@ app.use("/users", usersRoutes);
 
 mongoose
   .connect(
-    "mongodb+srv://test:test@fullstack-socialize.cqnhw.mongodb.net/socialize-app?retryWrites=true&w=majority",
+    process.env.URI,
     { useUnifiedTopology: true, useNewUrlParser: true }
   )
   .then(result => {
     app.listen(PORT, () => {
-      console.log("Connection has been made to the port & the database");
+      console.log("Connection has been made to the port & the database",process.env.URI,process.env.SECRET);
     });
   })
   .catch(err => console.log(err));
+

@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
+const secret = process.env.SECRET;
 
 const handleErrors = err => {
   let errors = { email: "", password: "", firstName: "", lastName: "" };
@@ -24,7 +25,7 @@ const handleErrors = err => {
 
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = id => {
-  return jwt.sign({ id }, "mohamed ibrahim", { expiresIn: maxAge });
+  return jwt.sign({ id }, secret, { expiresIn: maxAge });
 };
 
 const signUp = async (req, res) => {
