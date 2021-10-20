@@ -28,7 +28,7 @@ mongoose
   )
   .then(result => {
     app.listen(PORT, () => {
-      console.log("Connection has been made to the port & the database",process.env.URI,process.env.SECRET);
+      console.log("Connection has been made to the port & the database");
     });
   })
   .catch(err => console.log(err));
