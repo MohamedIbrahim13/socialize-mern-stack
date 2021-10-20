@@ -3,7 +3,7 @@ import axios from "axios";
 export const signUp = authData => async dispatch => {
   try {
     const { data } = await axios.post(
-      "http://localhost:5000/users/signup",
+      "https://serve-socialize.vercel.app/users/signup",
       authData,
       {
         headers: {
@@ -22,7 +22,7 @@ export const signUp = authData => async dispatch => {
 export const signIn = authData => async dispatch => {
   try {
     const { data } = await axios.post(
-      "http://localhost:5000/users/signin",
+      "https://serve-socialize.vercel.app/users/signin",
       authData,
       {
         headers: {
@@ -40,7 +40,7 @@ export const signIn = authData => async dispatch => {
 
 export const logOut = () => async dispatch => {
   try {
-    const { data } = await axios.get("http://localhost:5000/users/logout", {
+    const { data } = await axios.get("https://serve-socialize.vercel.app/users/logout", {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },

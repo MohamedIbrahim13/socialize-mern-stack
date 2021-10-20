@@ -7,7 +7,7 @@ axios.defaults.headers.common = { Authorization: `Bearer ${user?.token}` };
 
 export const getPosts = () => async dispatch => {
   try {
-    const { data } = await axios.get("http://localhost:5000/posts", {
+    const { data } = await axios.get("https://serve-socialize.vercel.app/posts", {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
@@ -23,7 +23,7 @@ export const getPosts = () => async dispatch => {
 export const getBySearch = searchQuery => async dispatch => {
   try {
     const { data } = await axios.get(
-      `http://localhost:5000/posts/search?searchQuery=${
+      `https://serve-socialize.vercel.app/posts/search?searchQuery=${
         searchQuery.search || "none"
       }&tags=${searchQuery.tags}`,
       {
@@ -42,7 +42,7 @@ export const getBySearch = searchQuery => async dispatch => {
 
 export const getPost = id => async dispatch => {
   try {
-    const { data } = await axios.get(`http://localhost:5000/posts/${id}`, {
+    const { data } = await axios.get(`https://serve-socialize.vercel.app/posts/${id}`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
@@ -57,7 +57,7 @@ export const getPost = id => async dispatch => {
 export const createPost = post => async dispatch => {
   const user = JSON.parse(localStorage.getItem("Profile"));
   try {
-    const { data } = await axios.post("http://localhost:5000/posts", post, {
+    const { data } = await axios.post("https://serve-socialize.vercel.app/posts", post, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         Authorization: `Bearer ${user?.token}`,
@@ -73,7 +73,7 @@ export const createPost = post => async dispatch => {
 export const updatePost = (id, post) => async dispatch => {
   try {
     const { data } = await axios.patch(
-      `http://localhost:5000/posts/${id}`,
+      `https://serve-socialize.vercel.app/posts/${id}`,
       post,
       {
         headers: {
@@ -90,7 +90,7 @@ export const updatePost = (id, post) => async dispatch => {
 export const commentPost = (id, value) => async dispatch => {
   try {
     const { data } = await axios.post(
-      `http://localhost:5000/posts/${id}/commentPost`,
+      `https://serve-socialize.vercel.app/posts/${id}/commentPost`,
       value,
       {
         headers: {
@@ -110,7 +110,7 @@ export const likePost = id => async dispatch => {
   const user = JSON.parse(localStorage.getItem("Profile"));
   try {
     const { data } = await axios.patch(
-      `http://localhost:5000/posts/${id}/likePost`,
+      https://serve-socialize.vercel.app/posts/${id}/likePost`,
       user?.token,
       {
         headers: {
@@ -127,7 +127,7 @@ export const likePost = id => async dispatch => {
 
 export const deletePost = id => async dispatch => {
   try {
-    await axios.delete(`http://localhost:5000/posts/${id}`, {
+    await axios.delete(`https://serve-socialize.vercel.app/posts/${id}`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
