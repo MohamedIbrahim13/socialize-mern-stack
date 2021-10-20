@@ -110,7 +110,7 @@ export const likePost = id => async dispatch => {
   const user = JSON.parse(localStorage.getItem("Profile"));
   try {
     const { data } = await axios.patch(
-      https://serve-socialize.vercel.app/posts/${id}/likePost`,
+      `https://serve-socialize.vercel.app/posts/${id}/likePost`,
       user?.token,
       {
         headers: {
